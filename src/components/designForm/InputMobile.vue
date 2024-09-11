@@ -5,26 +5,28 @@
 export default {
   name: 'InputMobile',
   props: {
-    value: [String]
+    value: String,
+    modelValue: String,
   },
   data() {
-    const { value } = this;
+    const { value, modelValue } = this;
     console.error(this);
     return {
-      innerValue: value
+      innerValue: value,
     };
   },
   methods: {
-
     onChangeValue(e) {
       try {
+        console.error('e', e);
         this.innerValue = e;
+        this.$emit('input', e); // todo,这个地方接收的好像有问题
         this.$emit('update:value', e);
+        this.$emit('update:modelValue', e);
       } catch (error) {
         console.warn(error);
       }
     },
-
     formCreateValidate(rule, value, callback) {
       try {
         const emailRegex = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
@@ -36,12 +38,12 @@ export default {
       } catch (error) {
         console.warn(error);
       }
-    }
+    },
   },
   watch: {
     value(newVal) {
       console.warn(newVal);
-    }
-  }
+    },
+  },
 };
 </script>

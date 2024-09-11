@@ -33,9 +33,9 @@ export default {
         },
       ],
       option: {
-        form: { inline: false, hideRequiredAsterisk: false, labelPosition: 'right', size: 'default', labelWidth: '125px' },
+        form: { inline: false, labelPosition: 'right', size: 'default', labelWidth: '125px' },
         resetBtn: { show: false, innerText: '重置' },
-        submitBtn: { show: true, innerText: '提交' },
+        submitBtn: { show: false, innerText: '提交' },
       },
     };
   },
