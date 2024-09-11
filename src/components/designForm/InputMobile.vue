@@ -17,7 +17,6 @@ export default {
 
     onChangeValue(value) {
       try {
-        console.error(value);
         this.$emit('update:modelValue', value);
       } catch (error) {
         console.warn(error);
@@ -27,7 +26,6 @@ export default {
     formCreateValidate(rule, value, callback) {
       try {
         const emailRegex = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
-        console.error(emailRegex.test('15906683084'));
         if (emailRegex.test(value)) {
           callback();
         } else {

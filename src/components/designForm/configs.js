@@ -31,11 +31,7 @@ export const InputMobileRule = {
   rule({ t }) {
     return {
       type: 'input-mobile',
-      field: uniqueId(),
       title: '手机号输入框',
-      $required: false,
-      display: true,
-      hidden: false,
       effect: {
         componentValidate: true,
       },
