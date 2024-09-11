@@ -1,5 +1,5 @@
 <template>
-  <input :value="innerValue" @input="onChangeValue" />
+  <el-input :value="innerValue" @input="onChangeValue" />
 </template>
 <script>
 export default {
@@ -9,6 +9,7 @@ export default {
   },
   data() {
     const { value } = this;
+    console.error(this);
     return {
       innerValue: value
     };
