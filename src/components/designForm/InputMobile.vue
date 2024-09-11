@@ -26,11 +26,12 @@ export default {
 
     formCreateValidate(rule, value, callback) {
       try {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/;
+        console.error(emailRegex.test('15906683084'));
         if (emailRegex.test(value)) {
           callback();
         } else {
-          callback('请输入有效的电子邮件地址');
+          callback('请输入有效的手机号');
         }
       } catch (error) {
         console.warn(error);

@@ -30,7 +30,7 @@ export const InputMobileRule = {
   mask: true,
   rule({ t }) {
     return {
-      type: 'input',
+      type: 'input-mobile',
       field: uniqueId(),
       title: '手机号输入框',
       $required: false,
