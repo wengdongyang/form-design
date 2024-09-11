@@ -18,8 +18,8 @@ export default {
 
     onChangeValue(e) {
       try {
-        this.innerValue = e.target.value;
-        this.$emit('update:value', e.target.value);
+        this.innerValue = e;
+        this.$emit('update:value', e);
       } catch (error) {
         console.warn(error);
       }
