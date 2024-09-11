@@ -1,23 +1,24 @@
 <template>
-  <el-input v-model="innerValue" @change="onChangeValue" />
+  <input :value="innerValue" @input="onChangeValue" />
 </template>
 <script>
 export default {
   name: 'InputMobile',
   props: {
-    modelValue: [String]
+    value: [String]
   },
   data() {
-    const { modelValue } = this;
+    const { value } = this;
     return {
-      innerValue: modelValue
+      innerValue: value
     };
   },
   methods: {
 
-    onChangeValue(value) {
+    onChangeValue(e) {
       try {
-        this.$emit('update:modelValue', value);
+        this.innerValue = e.target.value;
+        this.$emit('update:value', e.target.value);
       } catch (error) {
         console.warn(error);
       }
@@ -37,7 +38,7 @@ export default {
     }
   },
   watch: {
-    modelValue(newVal) {
+    value(newVal) {
       console.warn(newVal);
     }
   }
