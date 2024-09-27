@@ -1,4 +1,5 @@
 import uniqueId from '@form-create/utils/lib/unique';
+import { localeProps } from '@form-create/designer/src/utils';
 
 // export const InputMobileRule = {
 //   menu: 'main',
@@ -22,23 +23,28 @@ import uniqueId from '@form-create/utils/lib/unique';
 //   },
 // };
 
+const InputMobileName = 'input-mobile';
 export const InputMobileRule = {
   menu: 'main',
   icon: 'icon-select',
   label: '手机号输入框',
-  name: 'input-mobile',
+  name: InputMobileName,
   mask: true,
   rule({ t }) {
     return {
-      type: 'input-mobile',
+      type: InputMobileName,
       field: uniqueId(),
       title: '手机号输入框',
+      $required: true,
       effect: {
         componentValidate: true,
+      },
+      props: {
+        disabled: true,
       },
     };
   },
   props(_, { t }) {
-    return [];
+    return localeProps(t, InputMobileName + '.props', [{ title: '是否禁止输入', type: 'switch', field: 'disabled', value: true }]);
   },
 };

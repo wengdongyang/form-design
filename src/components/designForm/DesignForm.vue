@@ -1,10 +1,14 @@
 <template>
   <div class="hello">
     {{ formData }}
+    <input-mobile />
     <!-- 问题1 -->
-    <form-create :value.sync="formData" v-model="fapi" :rule="rule" :option="option" @submit="onSubmit"></form-create>
-
-    <fc-designer ref="designerRef" height="60vh" :config="config" />
+    <!-- <form-create :value.sync="formData" v-model="fapi" :rule="rule" :option="option" @submit="onSubmit"></form-create> -->
+    <fc-designer
+      ref="designerRef"
+      height="60vh"
+      :config="config"
+    />
   </div>
 </template>
 
@@ -24,7 +28,9 @@ export default {
           type: 'input-mobile',
           field: '手机号输入框',
           title: '手机号输入框',
+          $required: true,
           effect: { componentValidate: true },
+          validate: [{ required: false, message: '手机号码' }],
         },
         {
           type: 'input',
