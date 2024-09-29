@@ -4,11 +4,7 @@
     <input-mobile />
     <!-- 问题1 -->
     <!-- <form-create :value.sync="formData" v-model="fapi" :rule="rule" :option="option" @submit="onSubmit"></form-create> -->
-    <fc-designer
-      ref="designerRef"
-      height="60vh"
-      :config="config"
-    />
+    <fc-designer ref="designerRef" height="60vh" :config="config" />
   </div>
 </template>
 
